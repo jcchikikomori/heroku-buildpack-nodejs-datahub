@@ -313,6 +313,8 @@ build_dependencies() {
     npm_node_modules "$BUILD_DIR"
   fi
 
+  macaca_datahub
+
   mtime "modules.time.cache.$cache_status" "${start}"
 
   meta_set "build-step" "build-script"

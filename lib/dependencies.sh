@@ -131,6 +131,14 @@ log_build_scripts() {
   meta_set "heroku-postbuild-script" "$(read_json "$build_dir/package.json" ".scripts[\"heroku-postbuild\"]")"
 }
 
+macaca_datahub() {
+  local build_dir=${1:-}
+
+  echo "Installing Macaca Datahub"
+  cd "$build_dir" || return
+  monitor "yarn-install" npm install -g macaca-datahub 2>&1
+}
+
 yarn_node_modules() {
   local build_dir=${1:-}
   local production=${YARN_PRODUCTION:-false}
